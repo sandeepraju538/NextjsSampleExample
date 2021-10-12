@@ -17,10 +17,7 @@ const NewsPage = (props) => (
         <h1>News</h1>
         <div className={styles.container}>
             <div className={styles.left}>
-                <div className={styles.buttonContainer}>
-                    <Link href="/about">about</Link>
-                </div>
-                {props.data.status}
+                {/* {props.data.status} */}
                 {props.data.articles.map((item) => {
                     return (
                         <div className={styles.card} onClick={() => appendQuery(item)}>
@@ -36,6 +33,9 @@ const NewsPage = (props) => (
             </div>
         </div>
         <p>
+            <div>
+                <Link href="/about">about</Link>
+            </div>
             <Link href="/">
                 <a>Go home</a>
             </Link>
@@ -54,4 +54,3 @@ export const getServerSideProps: GetServerSideProps = async({params, res}) => {
 };
 
 export default NewsPage;
-
