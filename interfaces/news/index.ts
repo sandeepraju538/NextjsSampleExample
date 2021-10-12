@@ -1,3 +1,9 @@
+export type News = {
+    articles: Article[]
+    status: string
+    totalResults: number
+}
+
 export type Article = {
     source: Source
     author: string
