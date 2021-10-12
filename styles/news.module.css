@@ -1,5 +1,6 @@
 .container {
-    margin: 5rem;
+    margin: 2rem 0;
+    max-width: 500px;
     display: flex;
     justify-content: center;
 }
@@ -16,15 +17,10 @@
     background: #272727;
 }
 .left {
-    width: 40%;
-}
-.right {
-    width: 40%;
-    margin-left: 2rem;
+    width: 98%;
 }
 .card {
     position: relative;
-    width: 100%;
     height: auto;
     cursor: pointer;
     box-shadow: 5px 5px 20px rgb(0 0 0 / 3%);
