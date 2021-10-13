@@ -19,7 +19,12 @@ export default function NewsPage(props) {
         getNewsData(event.target.value);
     }
     let getNewsData = async(value) => {
-        let url = 'https://newsapi.org/v2/everything?q='+ value +'&from=2021-09-12&sortBy=publishedAt&apiKey=af6cd00ca143462cb5efc330e77c87c1';
+        let date = new Date();
+        const month = date.getMonth();
+        const day = String(date.getDate()).padStart(2, '0');
+        const year = date.getFullYear();
+        const output = year + '-' + month  + '-' + day;
+        let url = 'https://newsapi.org/v2/everything?q='+ value +'&from='+ output +'&sortBy=publishedAt&apiKey=af6cd00ca143462cb5efc330e77c87c1';
         const result = await fetch(url);
         const data = await result.json();
         ArticlesArrayData = data.articles;
@@ -96,7 +101,12 @@ export default function NewsPage(props) {
 
 export const getServerSideProps: GetServerSideProps = async({params, res}) => {
     let value = 'tesla';
-    let url = 'https://newsapi.org/v2/everything?q='+ value +'&from=2021-09-12&sortBy=publishedAt&apiKey=af6cd00ca143462cb5efc330e77c87c1';
+    let date = new Date();
+    const month = date.getMonth();
+    const day = String(date.getDate()).padStart(2, '0');
+    const year = date.getFullYear();
+    const output = year + '-' + month  + '-' + day;
+    let url = 'https://newsapi.org/v2/everything?q='+ value +'&from='+ output +'&sortBy=publishedAt&apiKey=af6cd00ca143462cb5efc330e77c87c1';
     const result = await fetch(url);
     const data: News = await result.json();
     // console.log('Data:', data);
